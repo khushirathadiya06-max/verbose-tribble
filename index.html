@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YogaGuruConnect - Find Your Perfect Yoga Tutor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🧘 YogaGuruConnect</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#search">Find Tutor</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#" onclick="openModal('tutorModal')">Register as Tutor</a></li>
+                <li><a href="#" onclick="openModal('studentModal')">Register as Student</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Find Your Perfect Yoga Tutor at Home</h1>
+        <p>Connect with certified yoga instructors in your area for personalized home sessions</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="openModal('studentModal')">Find a Tutor</button>
+            <button class="btn btn-secondary" onclick="openModal('tutorModal')">Become a Tutor</button>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search">
+        <div class="search-card">
+            <h2 style="margin-bottom: 1.5rem; color: #667eea;">Search Tutors</h2>
+            <form class="search-form" onsubmit="searchTutors(event)">
+                <div class="form-group">
+                    <label for="searchState">State</label>
+                    <select id="searchState" onchange="updateDistricts('searchState', 'searchDistrict')">
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="searchDistrict">District</label>
+                    <select id="searchDistrict">
+                        <option value="">Select District</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="searchExperience">Experience</label>
+                    <select id="searchExperience">
+                        <option value="">Any</option>
+                        <option value="0-2">0-2 years</option>
+                        <option value="2-5">2-5 years</option>
+                        <option value="5+">5+ years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Search</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Why Choose YogaGuruConnect?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h3>Home Sessions</h3>
+                <p>Learn yoga in the comfort of your home with personalized attention</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Certified Tutors</h3>
+                <p>All tutors are verified and certified yoga instructors</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Location-Based</h3>
+                <p>Find tutors in your state and district easily</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Affordable Rates</h3>
+                <p>Competitive pricing and flexible packages</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutors List Section -->
+    <section class="tutors-section">
+        <h2>Available Yoga Tutors</h2>
+        <div id="tutorsList"></div>
+    </section>
+
+    <!-- Tutor Registration Modal -->
+    <div id="tutorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('tutorModal')">&times;</span>
+            <h2>Register as Yoga Tutor</h2>
+            <form onsubmit="registerTutor(event)">
+                <div class="form-section">
+                    <label>Full Name *</label>
+                    <input type="text" id="tutorName" required>
+                </div>
+                <div class="form-section">
+                    <label>Email *</label>
+                    <input type="email" id="tutorEmail" required>
+                </div>
+                <div class="form-section">
+                    <label>Phone *</label>
+                    <input type="tel" id="tutorPhone" required>
+                </div>
+                <div class="form-section">
+                    <label>State *</label>
+                    <select id="tutorState" onchange="updateDistricts('tutorState', 'tutorDistrict')" required>
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+                <div class="form-section">
+                    <label>District *</label>
+                    <select id="tutorDistrict" required>
+                        <option value="">Select District</option>
+                    </select>
+                </div>
+                <div class="form-section">
+                    <label>Experience (years) *</label>
+                    <input type="number" id="tutorExperience" min="0" required>
+                </div>
+                <div class="form-section">
+                    <label>Certification Details *</label>
+                    <textarea id="tutorCertification" required></textarea>
+                </div>
+                <div class="form-section">
+                    <label>Specialization *</label>
+                    <input type="text" id="tutorSpecialization" placeholder="e.g., Hatha Yoga, Ashtanga, Vinyasa" required>
+                </div>
+                <div class="form-section">
+                    <label>Hourly Rate (₹) *</label>
+                    <input type="number" id="tutorRate" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Registration Modal -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('studentModal')">&times;</span>
+            <h2>Register as Student/Parent</h2>
+            <form onsubmit="registerStudent(event)">
+                <div class="form-section">
+                    <label>Full Name *</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div class="form-section">
+                    <label>Email *</label>
+                    <input type="email" id="studentEmail" required>
+                </div>
+                <div class="form-section">
+                    <label>Phone *</label>
+                    <input type="tel" id="studentPhone" required>
+                </div>
+                <div class="form-section">
+                    <label>Registering For *</label>
+                    <select id="studentType" required>
+                        <option value="">Select</option>
+                        <option value="self">Self</option>
+                        <option value="child">Child</option>
+                        <option value="family">Family Member</option>
+                    </select>
+                </div>
+                <div class="form-section">
+                    <label>Age *</label>
+                    <input type="number" id="studentAge" min="5" max="100" required>
+                </div>
+                <div class="form-section">
+                    <label>State *</label>
+                    <select id="studentState" onchange="updateDistricts('studentState', 'studentDistrict')" required>
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+                <div class="form-section">
+                    <label>District *</label>
+                    <select id="studentDistrict" required>
+                        <option value="">Select District</option>
+                    </select>
+                </div>
+                <div class="form-section">
+                    <label>Address *</label>
+                    <textarea id="studentAddress" required></textarea>
+                </div>
+                <div class="form-section">
+                    <label>Preferred Session Time</label>
+                    <select id="studentTime">
+                        <option value="morning">Morning (6AM-10AM)</option>
+                        <option value="afternoon">Afternoon (10AM-4PM)</option>
+                        <option value="evening">Evening (4PM-8PM)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 YogaGuruConnect. All rights reserved.</p>
+        <p>Connecting Yoga Tutors and Students Across India</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
