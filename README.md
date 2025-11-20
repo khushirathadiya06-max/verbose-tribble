@@ -1,2 +1,2 @@
 # verbose-tribble
-its a hoga guide and home tuitor paltform where everyone can get connected with thier requiered need
+its a yoga guide and home tuitor platform  where everyone can get connected
