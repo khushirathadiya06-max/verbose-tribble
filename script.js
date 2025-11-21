@@ -37,15 +37,24 @@ const statesData = {
 // Array to store tutors (in a real app, this would be in a database)
 let tutorsDatabase = [
     {
+        name: "Amit Joshi",
+        email: "amitjoshi@gamil.com",
+        phone: "7867453588",
+        state: "rajasthan",
+        district: "jaipur",
+        experience: 5,
+        specialization: "English, Maths",
+        rate: 300
+    }
+    {
         name: "Priya Sharma",
         email: "priya@example.com",
         phone: "9876543210",
         state: "Maharashtra",
         district: "Pune",
         experience: 5,
-        certification: "500-Hour RYT, Hatha Yoga Teacher Training",
         specialization: "Hatha Yoga, Meditation",
-        rate: 800
+        rate: 400
     },
     {
         name: "Rajesh Kumar",
@@ -56,7 +65,7 @@ let tutorsDatabase = [
         experience: 8,
         certification: "Advanced Yoga Teacher Training, Ashtanga Certified",
         specialization: "Ashtanga, Power Yoga",
-        rate: 1000
+        rate: 500
     },
     {
         name: "Anjali Verma",
@@ -67,7 +76,7 @@ let tutorsDatabase = [
         experience: 3,
         certification: "200-Hour RYT, Vinyasa Flow",
         specialization: "Vinyasa, Prenatal Yoga",
-        rate: 600
+        rate: 450
     }
 ];
 
