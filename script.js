@@ -43,8 +43,9 @@ let tutorsDatabase = [
         state: "Maharashtra",
         district: "Pune",
         experience: 5,
+        certification: "500-Hour RYT, Hatha Yoga Teacher Training",
         specialization: "Hatha Yoga, Meditation",
-        rate: 400
+        rate: 800
     },
     {
         name: "Rajesh Kumar",
@@ -55,7 +56,7 @@ let tutorsDatabase = [
         experience: 8,
         certification: "Advanced Yoga Teacher Training, Ashtanga Certified",
         specialization: "Ashtanga, Power Yoga",
-        rate: 500
+        rate: 1000
     },
     {
         name: "Anjali Verma",
@@ -66,7 +67,7 @@ let tutorsDatabase = [
         experience: 3,
         certification: "200-Hour RYT, Vinyasa Flow",
         specialization: "Vinyasa, Prenatal Yoga",
-        rate: 450
+        rate: 600
     }
 ];
 
