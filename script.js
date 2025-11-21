@@ -43,9 +43,9 @@ let tutorsDatabase = [
         state: "Maharashtra",
         district: "Pune",
         experience: 5,
-        certification: "500-Hour RYT, Hatha Yoga Teacher Training",
+        certification: "350-Hour RYT, Hatha Yoga Teacher Training",
         specialization: "Hatha Yoga, Meditation",
-        rate: 800
+        rate: 9000
     },
     {
         name: "Rajesh Kumar",
@@ -56,7 +56,7 @@ let tutorsDatabase = [
         experience: 8,
         certification: "Advanced Yoga Teacher Training, Ashtanga Certified",
         specialization: "Ashtanga, Power Yoga",
-        rate: 1000
+        rate: 8000
     },
     {
         name: "Anjali Verma",
@@ -65,9 +65,9 @@ let tutorsDatabase = [
         state: "Delhi",
         district: "South Delhi",
         experience: 3,
-        certification: "200-Hour RYT, Vinyasa Flow",
+        certification: "350-Hour RYT, Vinyasa Flow",
         specialization: "Vinyasa, Prenatal Yoga",
-        rate: 600
+        rate: 9000
     }
 ];
 
@@ -240,7 +240,7 @@ function displayTutors(tutors) {
                     <p><strong>Experience:</strong> ${tutor.experience} years</p>
                     <p><strong>Specialization:</strong> ${tutor.specialization}</p>
                     <p><strong>Certification:</strong> ${tutor.certification}</p>
-                    <p><strong>Rate:</strong> ₹${tutor.rate}/hour</p>
+                    <p><strong>Rate:</strong> ₹${tutor.rate}/month</p>
                     <p><strong>Phone:</strong> ${tutor.phone}</p>
                     <p><strong>Email:</strong> ${tutor.email}</p>
                 </div>
