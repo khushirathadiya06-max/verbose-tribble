@@ -37,16 +37,6 @@ const statesData = {
 // Array to store tutors (in a real app, this would be in a database)
 let tutorsDatabase = [
     {
-        name: "Amit Joshi",
-        email: "amitjoshi@gamil.com",
-        phone: "7867453588",
-        state: "rajasthan",
-        district: "jaipur",
-        experience: 5,
-        specialization: "English, Maths",
-        rate: 300
-    }
-    {
         name: "Priya Sharma",
         email: "priya@example.com",
         phone: "9876543210",
